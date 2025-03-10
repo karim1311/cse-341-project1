@@ -1,5 +1,5 @@
 const express = require('express')
-
+const MongoClient = require('mongodb').MongoClient
 const mongodb = require('./data/database')
 const app = express()
 
@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000
 
 app.use('/', require('./routes'))
 
+        app.listen(port, ()=>{console.log(`Database is listening and node Running on port ${port}`)})
 
 
 mongodb.initDb((err) => {
